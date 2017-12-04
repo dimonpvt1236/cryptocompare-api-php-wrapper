@@ -6,7 +6,7 @@ class Price extends CryptocompareApi
 {
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param string $fsym - base currency to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
@@ -14,7 +14,7 @@ class Price extends CryptocompareApi
 	 * @return mixed
 	 * Description: Get data for a currency pair. It returns general block explorer information, aggregated data and individual data for each exchange available.
 	 */
-	public function getSinglePrice($tryConversion = '1', $fsym = 'BTC',
+	public function getSinglePrice(bool $tryConversion = true, $fsym = 'BTC',
 		$tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
 		$params = [
@@ -30,14 +30,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param array $fsym - base currencies to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getMultiPrice($tryConversion = '1', $fsyms = ['BTC', 'ETH'],
+	public function getMultiPrice(bool $tryConversion = true, $fsyms = ['BTC', 'ETH'],
 		$tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
 		$params = [
@@ -53,14 +53,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param array $fsym - base currencies to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getHistoricalPrice($tryConversion = '1', $fsym = 'BTC',
+	public function getHistoricalPrice(bool $tryConversion = true, $fsym = 'BTC',
 		array $tsyms = ['USD', 'EUR'], $ts = '1507469305', $e = 'CCCAGG',
 		$sign = false)
 	{
@@ -78,14 +78,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param array $fsyms - base currencies to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getMultiPriceFull($tryConversion = '1',
+	public function getMultiPriceFull(bool $tryConversion = true,
 		$fsyms = ['BTC', 'ETH'], $tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
 		$params = [
@@ -101,14 +101,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param string $fsym - base currency to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getGenerateAvg($tryConversion = '1', $fsym = 'BTC',
+	public function getGenerateAvg(bool $tryConversion = true, $fsym = 'BTC',
 		$tsym = 'EUR', $e = 'Coinbase,Kraken', $sign = false)
 	{
 		$params = [
@@ -124,14 +124,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param string $fsym - base currency to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getDayAvg($tryConversion = '1', $fsym = 'BTC', $tsym = 'EUR',
+	public function getDayAvg(bool $tryConversion = true, $fsym = 'BTC', $tsym = 'EUR',
 		$e = 'CCCAGG', $avgType = 'HourVWAP', $UTCHourDiff = 0, $toTs = '1487116800',
 		$sign = false)
 	{
@@ -151,14 +151,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param array $fsyms - base currencies to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getSubsWatchlist($tryConversion = '1', $fsyms = ['BTC', 'ETH'],
+	public function getSubsWatchlist(bool $tryConversion = true, $fsyms = ['BTC', 'ETH'],
 		$tsym = 'EUR', $e = 'CCCAGG', $sign = false)
 	{
 		$params = [
@@ -174,14 +174,14 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion - type of currency to convert from - default: BTC
+	 * @param bool $tryConversion - type of currency to convert from - default: BTC
 	 * @param string $fsym - base currency to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getSubs($tryConversion = '1', $fsym = 'BTC',
+	public function getSubs(bool $tryConversion = true, $fsym = 'BTC',
 		$tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
 		$params = [
@@ -197,7 +197,7 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion
+	 * @param bool $tryConversion
 	 * @param string $fsym
 	 * @param string $tsym
 	 * @param string $e
@@ -207,7 +207,7 @@ class Price extends CryptocompareApi
 	 * @param null $toTs
 	 * @return bool|mixed
 	 */
-	public function getHistoMinute($tryConversion = '1', $fsym = 'BTC',
+	public function getHistoMinute(bool $tryConversion = true, $fsym = 'BTC',
 		$tsym = 'EUR', $e = 'CCCAGG', $sign = false, $aggregate = 1, $limit = 1440,
 		$toTs = NULL)
 	{
@@ -227,7 +227,7 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion
+	 * @param bool $tryConversion
 	 * @param string $fsym
 	 * @param string $tsym
 	 * @param string $e
@@ -237,7 +237,7 @@ class Price extends CryptocompareApi
 	 * @param null $toTs
 	 * @return bool|mixed
 	 */
-	public function getHistoHour($tryConversion = '1', $fsym = 'BTC',
+	public function getHistoHour(bool $tryConversion = true, $fsym = 'BTC',
 		$tsym = 'EUR', $e = 'CCCAGG', $sign = false, $aggregate = 1, $limit = 1440,
 		$toTs = NULL)
 	{
@@ -257,7 +257,7 @@ class Price extends CryptocompareApi
 
 
 	/**
-	 * @param string $tryConversion
+	 * @param bool $tryConversion
 	 * @param string $fsym
 	 * @param string $tsym
 	 * @param string $e
@@ -267,7 +267,7 @@ class Price extends CryptocompareApi
 	 * @param null $toTs
 	 * @return bool|mixed
 	 */
-	public function getHistoDay($tryConversion = '1', $fsym = 'BTC', $tsym = 'EUR',
+	public function getHistoDay(bool $tryConversion = true, $fsym = 'BTC', $tsym = 'EUR',
 		$e = 'CCCAGG', $sign = false, $aggregate = 1, $limit = 1440, $toTs = NULL)
 	{
 		$params = [
