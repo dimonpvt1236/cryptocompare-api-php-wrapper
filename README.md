@@ -82,15 +82,15 @@ $example6 = $cryptocompareApi->getNews("ALL_NEWS_FEEDS", false, "EN",false);
 ## Cryptocompare\Price
 #### convert a currency to an array of other currencies
 ```php
-$example1 = $cryptocomparePrice->getSinglePrice(true,"BTC",["USD", "EUR"],"CCCAGG","false");
+$example1 = $cryptocomparePrice->getSinglePrice(true,"BTC",["USD", "EUR"],"CCCAGG",false);
 ```
 #### convert an array of currencies to another array of currencies
 ```php
-$example2 = $cryptocomparePrice->getMultiPrice(true,["BTC","ETH"],["USD","EUR","ETH"],"CCCAGG","false");
+$example2 = $cryptocomparePrice->getMultiPrice(true,["BTC","ETH"],["USD","EUR","ETH"],"CCCAGG",false);
 ```
 #### convert an a currency to another array of currencies at a specific point in time
 ```php
-$example3 = $cryptocomparePrice->getHistoricalPrice(true, "BTC", ["USD","EUR"], "1507469305", "CCCAGG", false);
+$example3 = $cryptocomparePrice->getHistoricalPrice(true, "BTC", ["USD","EUR"], 1507469305, "CCCAGG", false);
 ```
 #### convert an array of currencies to another array of currencies and get full trading information
 ```php
@@ -102,7 +102,7 @@ $example5 = $cryptocomparePrice->getGenerateAvg(true, "BTC", "EUR", "Coinbase,Kr
 ```
 #### get open/high/low/close at a specific point in time
 ```php
-$example6 = $cryptocomparePrice->getDayAvg(true, "BTC", "EUR", "CCCAGG", "HourVWAP", 0, "1487116800", false);
+$example6 = $cryptocomparePrice->getDayAvg(true, "BTC", "EUR", "CCCAGG", "HourVWAP", 0, 1487116800, false);
 ```
 #### get information required for streaming
 ```php
@@ -179,7 +179,7 @@ $example1 = $cryptocompareApi->getAvailableCalls();
 print_r($example1);
 
 $cryptocomparePrice = new Cryptocompare\Price();
-$example2 = $cryptocomparePrice->getSinglePrice(true,"BTC","USD","CCCAGG","false");
+$example2 = $cryptocomparePrice->getSinglePrice(true,"BTC","USD","CCCAGG",false);
 print_r($example2);
 
 
