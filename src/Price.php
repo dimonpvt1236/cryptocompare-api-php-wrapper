@@ -76,7 +76,7 @@ class Price extends CryptocompareApi
 	{
 		$_tsyms = '';
 		foreach ($tsyms as $i => $tsym) {
-			if ($i == 0) {
+			if ($i === 0) {
 				$_tsyms = $tsym;
 			} else {
 				$_tsyms = $_tsyms . ',' . $tsym;

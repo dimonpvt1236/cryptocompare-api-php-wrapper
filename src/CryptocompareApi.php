@@ -116,7 +116,7 @@ class CryptocompareApi
 	 */
 	public function getRateLimits($timespan = 'hour')
 	{
-		if (($timespan == 'hour' ) || ($timespan == 'second' )) {
+		if (($timespan === 'hour' ) || ($timespan === 'second' )) {
 			$limits = $this->getRequest('public', '/stats/rate/hour/limit');
 			return $limits;
 		} else {
@@ -145,20 +145,20 @@ class CryptocompareApi
 	 */
 	public function getRequest($type = 'public', $action = '', $options = [])
 	{
-		if ($action == '') {
+		if ($action === '') {
 			$this->errorMessages[] = 'no action submitted';
 			return false;
 		}
-		if ($type == 'public') {
+		if ($type === 'public') {
 			$uri = $this->publicEndpoint . $action;
-		} elseif ($type == 'private') {
+		} elseif ($type === 'private') {
 			$uri = $this->privateEndpoint . $action;
 		} else {
 			$this->errorMessages[] = 'invalid type specified';
 			return false;
 		}
 		try {
-			if ($this->debug == true) {
+			if ($this->debug === true) {
 				echo 'URI: ' . $uri . '<br>';
 			}
 			if (empty($options['extraParams'])) {
@@ -173,7 +173,7 @@ class CryptocompareApi
 			$this->body = $res->getBody()->getContents();
 			return json_decode($this->body);
 		} catch (\Exception $e) {
-			if ($this->debug == true) {
+			if ($this->debug === true) {
 				echo 'HTTP response code:' . $this->statusCode;
 				print_r(json_decode($this->body));
 				die();
