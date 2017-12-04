@@ -41,14 +41,10 @@ class Market extends CryptocompareApi
 		$sign = false)
 	{
 
-		$extraParams = $this->appplicationName;
-		;
-
 		$params = [
 			'limit' => $limit,
 			'fsym' => $fsym,
 			'tsym' => $tsym,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/top/exchanges', $params);
@@ -64,13 +60,9 @@ class Market extends CryptocompareApi
 	public function getTopVolumes($tsym = 'EUR', $limit = 20, $sign = false)
 	{
 
-		$extraParams = $this->appplicationName;
-		;
-
 		$params = [
 			'limit' => $limit,
 			'tsym' => $tsym,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/top/volumes', $params);
@@ -84,12 +76,7 @@ class Market extends CryptocompareApi
 	 */
 	public function getList($sign = false)
 	{
-
-		$extraParams = $this->appplicationName;
-		;
-
 		$params = [
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/all/exchanges', $params);

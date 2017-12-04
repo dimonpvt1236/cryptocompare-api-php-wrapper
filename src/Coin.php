@@ -16,9 +16,7 @@ class Coin extends CryptocompareApi
 	 */
 	public function getList($sign = false)
 	{
-		$extraParams = $this->appplicationName;
 		$params = [
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/all/coinlist', $params);

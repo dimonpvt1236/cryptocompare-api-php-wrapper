@@ -16,7 +16,6 @@ class Price extends CryptocompareApi
 	 * @param string $fsym - base currency to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 * Description: Get data for a currency pair. It returns general block explorer information, aggregated data and individual data for each exchange available.
@@ -24,14 +23,11 @@ class Price extends CryptocompareApi
 	public function getSinglePrice($tryConversion = '1', $fsym = 'BTC',
 		$tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
-		$extraParams = $this->appplicationName;
-		;
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
 			'tsyms' => $tsyms,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/price', $params);
@@ -44,7 +40,6 @@ class Price extends CryptocompareApi
 	 * @param array $fsym - base currencies to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
@@ -54,7 +49,6 @@ class Price extends CryptocompareApi
 	{
 		$_tsyms = join(',', $tsyms);
 		$_fsyms = join(',', $fsyms);
-		$extraParams = $this->appplicationName;
 		;
 
 		$params = [
@@ -62,7 +56,6 @@ class Price extends CryptocompareApi
 			'fsyms' => $_fsyms,
 			'tsyms' => $_tsyms,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/pricemulti', $params);
@@ -82,7 +75,6 @@ class Price extends CryptocompareApi
 		$tsyms = ['USD', 'EUR'], $ts = '1507469305', $e = 'CCCAGG', $sign = false)
 	{
 		$_tsyms = '';
-		$extraParams = $this->appplicationName;
 		foreach ($tsyms as $i => $tsym) {
 			if ($i == 0) {
 				$_tsyms = $tsym;
@@ -95,7 +87,6 @@ class Price extends CryptocompareApi
 			'fsym' => $fsym,
 			'tsyms' => $_tsyms,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign,
 			'ts' => $ts,
 		];
@@ -109,7 +100,6 @@ class Price extends CryptocompareApi
 	 * @param array $fsyms - base currencies to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
@@ -119,15 +109,12 @@ class Price extends CryptocompareApi
 	{
 		$_tsyms = join(',', $tsyms);
 		$_fsyms = join(',', $fsyms);
-		$extraParams = $this->appplicationName;
-		;
 
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsyms' => $_fsyms,
 			'tsyms' => $_tsyms,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/pricemultifull', $params);
@@ -140,7 +127,6 @@ class Price extends CryptocompareApi
 	 * @param string $fsym - base currency to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
@@ -148,15 +134,11 @@ class Price extends CryptocompareApi
 		$tsym = 'EUR', $e = 'Coinbase,Kraken', $sign = false)
 	{
 
-		$extraParams = $this->appplicationName;
-		;
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
 			'tsym' => $tsym,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/generateAvg', $params);
@@ -169,7 +151,6 @@ class Price extends CryptocompareApi
 	 * @param string $fsym - base currency to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
@@ -177,9 +158,6 @@ class Price extends CryptocompareApi
 		$e = 'CCCAGG', $avgType = 'HourVWAP', $UTCHourDiff = 0, $toTs = '1487116800',
 		$sign = false)
 	{
-
-		$extraParams = $this->appplicationName;
-		;
 
 		$params = [
 			'tryConversion' => $tryConversion,
@@ -189,7 +167,6 @@ class Price extends CryptocompareApi
 			'fsym' => $fsym,
 			'tsym' => $tsym,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/dayAvg', $params);
@@ -202,7 +179,6 @@ class Price extends CryptocompareApi
 	 * @param array $fsyms - base currencies to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
@@ -211,15 +187,12 @@ class Price extends CryptocompareApi
 	{
 
 		$_fsyms = join(',', $fsyms);
-		$extraParams = $this->appplicationName;
-		;
 
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsyms' => $_fsyms,
 			'tsym' => $tsym,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/subsWatchlist', $params);
@@ -232,7 +205,6 @@ class Price extends CryptocompareApi
 	 * @param string $fsym - base currency to convert from
 	 * @param array $tsyms - currencies to convert to
 	 * @param string $e - the exchange
-	 * @param string $extraParams - extra parameters
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
@@ -241,15 +213,12 @@ class Price extends CryptocompareApi
 	{
 
 		$_tsyms = join(',', $tsyms);
-		$extraParams = $this->appplicationName;
-		;
 
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
 			'tsyms' => $_tsyms,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign
 		];
 		$r = $this->getRequest('public', '/data/subs', $params);
@@ -272,14 +241,11 @@ class Price extends CryptocompareApi
 		$tsym = 'EUR', $e = 'CCCAGG', $sign = false, $aggregate = 1, $limit = 1440,
 		$toTs = NULL)
 	{
-		$extraParams = $this->appplicationName;
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
 			'tsym' => $tsym,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign,
 			'aggregate' => $aggregate,
 			'limit' => $limit,
@@ -305,14 +271,11 @@ class Price extends CryptocompareApi
 		$tsym = 'EUR', $e = 'CCCAGG', $sign = false, $aggregate = 1, $limit = 1440,
 		$toTs = NULL)
 	{
-		$extraParams = $this->appplicationName;
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
 			'tsym' => $tsym,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign,
 			'aggregate' => $aggregate,
 			'limit' => $limit,
@@ -337,14 +300,11 @@ class Price extends CryptocompareApi
 	public function getHistoDay($tryConversion = '1', $fsym = 'BTC', $tsym = 'EUR',
 		$e = 'CCCAGG', $sign = false, $aggregate = 1, $limit = 1440, $toTs = NULL)
 	{
-		$extraParams = $this->appplicationName;
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
 			'tsym' => $tsym,
 			'e' => $e,
-			'extraParams' => $extraParams,
 			'sign' => $sign,
 			'aggregate' => $aggregate,
 			'limit' => $limit,

@@ -161,6 +161,9 @@ class CryptocompareApi
 			if ($this->debug == true) {
 				echo 'URI: ' . $uri . '<br>';
 			}
+			if (empty($options['extraParams'])) {
+				$options['extraParams'] = $this->appplicationName;
+			}
 			$client = new \GuzzleHttp\Client(['verify' => false]);
 			$res = $client->request('GET', $uri, [
 					'query' => $options
