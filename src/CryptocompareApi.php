@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: loeken
- * Date: 10/6/17
- * Time: 12:35 PM
- */
 
 namespace Cryptocompare;
 
