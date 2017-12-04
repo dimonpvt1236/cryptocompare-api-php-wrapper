@@ -6,13 +6,14 @@ class Market extends CryptocompareApi
 {
 
 	/**
+	 * Get top pairs by volume for a currency (always uses CC aggregated data).
 	 * @param string $fsym
-	 * @param string $tsym
 	 * @param int $limit
 	 * @param bool $sign Should server sign the request?
 	 * @return bool|mixed
 	 */
-	public function getTopPairs($fsym = 'BTC', $limit = 5, bool $sign = false)
+	public function getTopPairs(string $fsym = 'BTC', int $limit = 5,
+		bool $sign = false)
 	{
 		$params = [
 			'fsym' => $fsym,
@@ -25,14 +26,15 @@ class Market extends CryptocompareApi
 
 
 	/**
-	 * @param string $fsym - base currency to convert from
-	 * @param string $tsym - currency to convert to
-	 * @param int $limit - limit of results
+	 * @param string $fsym Currency to convert from
+	 * @param string $tsym Currency to convert to
+	 * @param int $limit Limit of results
 	 * @param bool $sign Should server sign the request?
 	 * @return mixed
+	 * @deprecated No mention in official api docs https://www.cryptocompare.com/api/
 	 */
-	public function getTopExchanges($fsym = 'BTC', $tsym = 'EUR', $limit = 5,
-		bool $sign = false)
+	public function getTopExchanges(string $fsym = 'BTC', string $tsym = 'EUR',
+		int $limit = 5, bool $sign = false)
 	{
 
 		$params = [
@@ -47,11 +49,13 @@ class Market extends CryptocompareApi
 
 
 	/**
-	 * @param string $tsym - currency to convert to
+	 * @param string $tsym Currency to convert to
 	 * @param bool $sign Should server sign the request?
 	 * @return mixed
+	 * @deprecated No mention in official api docs https://www.cryptocompare.com/api/
 	 */
-	public function getTopVolumes($tsym = 'EUR', $limit = 20, bool $sign = false)
+	public function getTopVolumes(string $tsym = 'EUR', int $limit = 20,
+		bool $sign = false)
 	{
 
 		$params = [
@@ -67,6 +71,7 @@ class Market extends CryptocompareApi
 	/**
 	 * @param bool $sign Should server sign the request?
 	 * @return mixed
+	 * @deprecated No mention in official api docs https://www.cryptocompare.com/api/
 	 */
 	public function getList(bool $sign = false)
 	{
