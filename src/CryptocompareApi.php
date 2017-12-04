@@ -19,7 +19,7 @@ class CryptocompareApi
 	/**
 	 * @var bool - if set to true will die() and print exception when http request fails -> not recommended in production enviroment
 	 */
-	public $debug = false;
+	private $debug = false;
 
 
 	// do not edit bellow unless you know what you are doing
@@ -166,7 +166,7 @@ class CryptocompareApi
 			}
 			$client = new \GuzzleHttp\Client(['verify' => false]);
 			$res = $client->request('GET', $uri, [
-					'query' => $options
+				'query' => $options
 			]);
 			$this->statusCode = $res->getStatusCode();
 			$this->header = $res->getHeader('content-type');
@@ -187,7 +187,7 @@ class CryptocompareApi
 	 * @param string $appName
 	 * @param bool $debug
 	 */
-	function __construct(string $appName, $debug = false)
+	function __construct(string $appName, bool $debug = false)
 	{
 		$this->appName = $appName;
 		$this->setDebug($debug);
@@ -195,9 +195,9 @@ class CryptocompareApi
 
 
 	/**
-	 * @param $debug
+	 * @param bool $debug
 	 */
-	public function setDebug($debug)
+	public function setDebug(bool $debug)
 	{
 		$this->debug = $debug;
 	}
