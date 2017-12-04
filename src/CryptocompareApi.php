@@ -12,9 +12,9 @@ class CryptocompareApi
 {
 	// the following variables should be set by you
 	/**
-	 * @var string - defines the name of your application - change this
+	 * @var string - defines the name of your application - to be set in __construct()
 	 */
-	public $appplicationName = 'default_php_wrapper';
+	private $appName = 'default_php_wrapper';
 
 	/**
 	 * @var bool - if set to true will die() and print exception when http request fails -> not recommended in production enviroment
@@ -162,7 +162,7 @@ class CryptocompareApi
 				echo 'URI: ' . $uri . '<br>';
 			}
 			if (empty($options['extraParams'])) {
-				$options['extraParams'] = $this->appplicationName;
+				$options['extraParams'] = $this->appName;
 			}
 			$client = new \GuzzleHttp\Client(['verify' => false]);
 			$res = $client->request('GET', $uri, [
@@ -184,10 +184,12 @@ class CryptocompareApi
 
 	/**
 	 * CryptocompareApi constructor.
+	 * @param string $appName
 	 * @param bool $debug
 	 */
-	function __construct($debug = false)
+	function __construct(string $appName, $debug = false)
 	{
+		$this->appName = $appName;
 		$this->setDebug($debug);
 	}
 
