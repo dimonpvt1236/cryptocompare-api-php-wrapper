@@ -6,12 +6,12 @@ class CryptocompareApi
 {
 	// the following variables should be set by you
 	/**
-	 * @var string - defines the name of your application - to be set in __construct()
+	 * @var string Application name, to be set in __construct()
 	 */
 	private $appName = 'default_php_wrapper';
 
 	/**
-	 * @var bool - if set to true will die() and print exception when http request fails -> not recommended in production enviroment
+	 * @var bool If set to true will die() and print exception when http request fails -> not recommended in production enviroment
 	 */
 	private $debug = false;
 
@@ -19,33 +19,34 @@ class CryptocompareApi
 	// do not edit bellow unless you know what you are doing
 
 	/**
-	 * @var string publicEndpoint applies to all requests that do not need a session key to work
+	 * @var string publicEndpoint url, applies to all requests that do not need a session key to work
 	 */
 	public $publicEndpoint = 'https://min-api.cryptocompare.com';
 
 	/**
-	 * @var string privateEndpoint applies to all requests that do need a session key to work
+	 * @var string privateEndpoint url, applies to all requests that do need a session key to work
 	 */
 	public $privateEndpoint = 'https://www.cryptocompare.com/api/data';
 
 	/**
-	 * @var array contains strings with errors
+	 * @var array Contains strings with errors
 	 */
 	public $errorMessages = [];
 
 	/**
-	 * @var string - http status code from server
+	 * @var string Http status code from server
 	 */
 	public $statusCode = 'unset';
 
 	/**
-	 * @var string - http response body
+	 * @var string Http response body
 	 */
 	public $body = '';
 
 
 	/**
-	 * retrieves an array of objects listing all available api endpoints
+	 * Retrieve an array of objects listing all available api endpoints.
+	 * @return bool|mixed
 	 */
 	public function getAvailableCalls()
 	{
@@ -55,7 +56,8 @@ class CryptocompareApi
 
 
 	/**
-	 * @return bool|mixed - returns mining contracts
+	 * Get all the mining contracts in a JSON array.
+	 * @return bool|mixed
 	 */
 	public function getMiningContracts()
 	{
@@ -65,7 +67,8 @@ class CryptocompareApi
 
 
 	/**
-	 * @return bool|mixed - returns mining equipment added on website
+	 * Get all the mining equipment available on the website. It returns an array of mining equipment objects.
+	 * @return bool|mixed
 	 */
 	public function getMiningEquipment()
 	{
@@ -76,7 +79,8 @@ class CryptocompareApi
 
 	/**
 	 * @param bool $sign Should server sign the request?
-	 * @return bool|mixed - returns mining equipment added on website
+	 * @return bool|mixed
+	 * @deprecated No mention in official api docs https://www.cryptocompare.com/api/
 	 */
 	public function getNewsProviders(bool $sign = false)
 	{
@@ -89,11 +93,15 @@ class CryptocompareApi
 
 
 	/**
+	 * @param string $feeds
+	 * @param bool $lTs
+	 * @param string $lang
 	 * @param bool $sign Should server sign the request?
-	 * @return bool|mixed - returns mining equipment added on website
+	 * @return bool|mixed
+	 * @deprecated No mention in official api docs https://www.cryptocompare.com/api/
 	 */
-	public function getNews($feeds = 'ALL_NEWS_FEEDS', $lTs = false, $lang = 'EN',
-		bool $sign = false)
+	public function getNews(string $feeds = 'ALL_NEWS_FEEDS', bool $lTs = false,
+		string $lang = 'EN', bool $sign = false)
 	{
 		$params = [
 			'feeds' => $feeds,
@@ -107,13 +115,13 @@ class CryptocompareApi
 
 
 	/**
-	 * @param string $timespan - available options: hour / second
+	 * @param string $timespan Available options: hour / second
 	 * @return bool|mixed
 	 */
 	public function getRateLimits($timespan = 'hour')
 	{
-		if (($timespan === 'hour' ) || ($timespan === 'second' )) {
-			$limits = $this->getRequest('public', '/stats/rate/hour/limit');
+		if ($timespan === 'hour' || $timespan === 'second') {
+			$limits = $this->getRequest('public', "/stats/rate/$timespan/limit");
 			return $limits;
 		} else {
 			$this->errorMessages[] = 'avaiable options for timespan are hour or second';
@@ -123,7 +131,8 @@ class CryptocompareApi
 
 
 	/**
-	 * @return array returns array of strings with errors during the request
+	 * Get array of strings with errors occurred during the request.
+	 * @return array
 	 */
 	private function getErrorMessages()
 	{
@@ -132,17 +141,17 @@ class CryptocompareApi
 
 
 	/**
+	 * Send request to api endpoint.
 	 * @param string $type
 	 * @param string $action
 	 * @param array $options
 	 * @return bool|mixed
-	 * Description:
-	 * will send request to api endpoint
 	 */
-	public function getRequest($type = 'public', $action = '', $options = [])
+	public function getRequest(string $type = 'public', string $action = '',
+		array $options = [])
 	{
 		if ($action === '') {
-			$this->errorMessages[] = 'no action submitted';
+			$this->errorMessages[] = 'no $action submitted';
 			return false;
 		}
 		if ($type === 'public') {
@@ -150,12 +159,12 @@ class CryptocompareApi
 		} elseif ($type === 'private') {
 			$uri = $this->privateEndpoint . $action;
 		} else {
-			$this->errorMessages[] = 'invalid type specified';
+			$this->errorMessages[] = 'invalid request $type specified';
 			return false;
 		}
 		try {
 			if ($this->debug === true) {
-				echo 'URI: ' . $uri . '<br>';
+				echo 'URI: ' . $uri . '<br>' . PHP_EOL;
 			}
 			if (empty($options['extraParams'])) {
 				$options['extraParams'] = $this->appName;
