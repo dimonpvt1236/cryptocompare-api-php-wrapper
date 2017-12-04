@@ -17,10 +17,10 @@ class Coin extends CryptocompareApi
 	public function getList($sign = false)
 	{
 		$extraParams = $this->appplicationName;
-		$params = array(
+		$params = [
 			'extraParams' => $extraParams,
 			'sign' => $sign
-		);
+		];
 		$r = $this->getRequest('public', '/data/all/coinlist', $params);
 		return $r;
 	}
@@ -33,10 +33,10 @@ class Coin extends CryptocompareApi
 	 */
 	public function getSnapshot($fsym = 'BTC', $tsym = 'EUR')
 	{
-		$params = array(
+		$params = [
 			'fsym' => $fsym,
 			'tsym' => $tsym
-		);
+		];
 		$r = $this->getRequest('private', '/coinsnapshot', $params);
 		return $r;
 	}
@@ -48,9 +48,9 @@ class Coin extends CryptocompareApi
 	 */
 	public function getSnapshotFullById($id = 0)
 	{
-		$params = array(
+		$params = [
 			'id' => $id,
-		);
+		];
 		$r = $this->getRequest('private', '/coinsnapshotfullbyid', $params);
 		return $r;
 	}
@@ -62,9 +62,9 @@ class Coin extends CryptocompareApi
 	 */
 	public function getSocialStats($id = 0)
 	{
-		$params = array(
+		$params = [
 			'id' => $id,
-		);
+		];
 		$r = $this->getRequest('private', '/socialstats', $params);
 		return $r;
 	}

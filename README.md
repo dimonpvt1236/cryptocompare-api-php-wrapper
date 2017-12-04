@@ -82,19 +82,19 @@ $example6 = $cryptocompareApi->getNews("ALL_NEWS_FEEDS", false, "EN",false);
 ## Cryptocompare\Price
 #### convert a currency to an array of other currencies
 ```php
-$example1 = $cryptocomparePrice->getSinglePrice("1","BTC",array("USD", "EUR"),"CCCAGG","false");
+$example1 = $cryptocomparePrice->getSinglePrice("1","BTC",["USD", "EUR"],"CCCAGG","false");
 ```
 #### convert an array of currencies to another array of currencies
 ```php
-$example2 = $cryptocomparePrice->getMultiPrice("1",array("BTC","ETH"),array("USD","EUR","ETH"),"CCCAGG","false");
+$example2 = $cryptocomparePrice->getMultiPrice("1",["BTC","ETH"],["USD","EUR","ETH"],"CCCAGG","false");
 ```
 #### convert an a currency to another array of currencies at a specific point in time
 ```php
-$example3 = $cryptocomparePrice->getHistoricalPrice("1", "BTC", array("USD","EUR"), "1507469305", "CCCAGG", false);
+$example3 = $cryptocomparePrice->getHistoricalPrice("1", "BTC", ["USD","EUR"], "1507469305", "CCCAGG", false);
 ```
 #### convert an array of currencies to another array of currencies and get full trading information
 ```php
-$example4 = $cryptocomparePrice->getMultiPriceFull("1", array("BTC","ETH"), array("USD","EUR"),"CCCAGG", false);
+$example4 = $cryptocomparePrice->getMultiPriceFull("1", ["BTC","ETH"], ["USD","EUR"],"CCCAGG", false);
 ```
 #### get trading information for a currency pair on specific markets as aggregated information
 ```php
@@ -106,11 +106,11 @@ $example6 = $cryptocomparePrice->getDayAvg("1", "BTC", "EUR", "CCCAGG", "HourVWA
 ```
 #### get information required for streaming
 ```php
-$example7 = $cryptocomparePrice->getSubsWatchlist("1", array("BTC", "ETH"), "EUR", "CCCAGG",false);
+$example7 = $cryptocomparePrice->getSubsWatchlist("1", ["BTC", "ETH"], "EUR", "CCCAGG",false);
 ```
 #### get all streamer subscription channels for the requested pair
 ```php
-$example8 = $cryptocomparePrice->getSubs("1", "BTC", array("USD", "EUR"), "CCCAGG", false);
+$example8 = $cryptocomparePrice->getSubs("1", "BTC", ["USD", "EUR"], "CCCAGG", false);
 ```
 #### get all historical data for minute
 ```php

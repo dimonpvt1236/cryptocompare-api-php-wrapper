@@ -37,7 +37,7 @@ class CryptocompareApi
 	/**
 	 * @var array contains strings with errors
 	 */
-	public $errorMessages = array();
+	public $errorMessages = [];
 
 	/**
 	 * @var string - http status code from server
@@ -85,9 +85,9 @@ class CryptocompareApi
 	 */
 	public function getNewsProviders($sign = false)
 	{
-		$params = array(
+		$params = [
 			'sign' => $sign,
-		);
+		];
 		$equipment = $this->getRequest('public', '/data/news/providers', $params);
 		return $equipment;
 	}
@@ -99,12 +99,12 @@ class CryptocompareApi
 	public function getNews($feeds = 'ALL_NEWS_FEEDS', $lTs = false, $lang = 'EN',
 		$sign = false)
 	{
-		$params = array(
+		$params = [
 			'feeds' => $feeds,
 			'lTs' => $lTs,
 			'lang' => $lang,
 			'sign' => $sign,
-		);
+		];
 		$equipment = $this->getRequest('public', '/data/news/providers', $params);
 		return $equipment;
 	}
@@ -143,7 +143,7 @@ class CryptocompareApi
 	 * Description:
 	 * will send request to api endpoint
 	 */
-	public function getRequest($type = 'public', $action = '', $options = array())
+	public function getRequest($type = 'public', $action = '', $options = [])
 	{
 		if ($action == '') {
 			$this->errorMessages[] = 'no action submitted';
@@ -162,9 +162,9 @@ class CryptocompareApi
 				echo 'URI: ' . $uri . '<br>';
 			}
 			$client = new \GuzzleHttp\Client(['verify' => false]);
-			$res = $client->request('GET', $uri, array(
+			$res = $client->request('GET', $uri, [
 					'query' => $options
-			));
+			]);
 			$this->statusCode = $res->getStatusCode();
 			$this->header = $res->getHeader('content-type');
 			$this->body = $res->getBody()->getContents();

@@ -20,11 +20,11 @@ class Market extends CryptocompareApi
 	 */
 	public function getTopPairs($fsym = 'BTC', $limit = 5, $sign = false)
 	{
-		$params = array(
+		$params = [
 			'fsym' => $fsym,
 			'limit' => $limit,
 			'sign' => $sign,
-		);
+		];
 		$pairs = $this->getRequest('public', '/data/top/pairs', $params);
 		return $pairs;
 	}
@@ -44,13 +44,13 @@ class Market extends CryptocompareApi
 		$extraParams = $this->appplicationName;
 		;
 
-		$params = array(
+		$params = [
 			'limit' => $limit,
 			'fsym' => $fsym,
 			'tsym' => $tsym,
 			'extraParams' => $extraParams,
 			'sign' => $sign
-		);
+		];
 		$r = $this->getRequest('public', '/data/top/exchanges', $params);
 		return $r;
 	}
@@ -67,12 +67,12 @@ class Market extends CryptocompareApi
 		$extraParams = $this->appplicationName;
 		;
 
-		$params = array(
+		$params = [
 			'limit' => $limit,
 			'tsym' => $tsym,
 			'extraParams' => $extraParams,
 			'sign' => $sign
-		);
+		];
 		$r = $this->getRequest('public', '/data/top/volumes', $params);
 		return $r;
 	}
@@ -88,10 +88,10 @@ class Market extends CryptocompareApi
 		$extraParams = $this->appplicationName;
 		;
 
-		$params = array(
+		$params = [
 			'extraParams' => $extraParams,
 			'sign' => $sign
-		);
+		];
 		$r = $this->getRequest('public', '/data/all/exchanges', $params);
 		return $r;
 	}
