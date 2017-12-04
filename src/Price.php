@@ -37,18 +37,13 @@ class Price extends CryptocompareApi
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getMultiPrice($tryConversion = '1',
-		$fsyms = ['BTC', 'ETH'], $tsyms = ['USD', 'EUR'], $e = 'CCCAGG',
-		$sign = false)
+	public function getMultiPrice($tryConversion = '1', $fsyms = ['BTC', 'ETH'],
+		$tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
-		$_tsyms = join(',', $tsyms);
-		$_fsyms = join(',', $fsyms);
-		;
-
 		$params = [
 			'tryConversion' => $tryConversion,
-			'fsyms' => $_fsyms,
-			'tsyms' => $_tsyms,
+			'fsyms' => join(',', $fsyms),
+			'tsyms' => join(',', $tsyms),
 			'e' => $e,
 			'sign' => $sign
 		];
@@ -66,20 +61,13 @@ class Price extends CryptocompareApi
 	 * @return mixed
 	 */
 	public function getHistoricalPrice($tryConversion = '1', $fsym = 'BTC',
-		$tsyms = ['USD', 'EUR'], $ts = '1507469305', $e = 'CCCAGG', $sign = false)
+		array $tsyms = ['USD', 'EUR'], $ts = '1507469305', $e = 'CCCAGG',
+		$sign = false)
 	{
-		$_tsyms = '';
-		foreach ($tsyms as $i => $tsym) {
-			if ($i === 0) {
-				$_tsyms = $tsym;
-			} else {
-				$_tsyms = $_tsyms . ',' . $tsym;
-			}
-		}
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
-			'tsyms' => $_tsyms,
+			'tsyms' => join(',', $tsyms),
 			'e' => $e,
 			'sign' => $sign,
 			'ts' => $ts,
@@ -98,16 +86,12 @@ class Price extends CryptocompareApi
 	 * @return mixed
 	 */
 	public function getMultiPriceFull($tryConversion = '1',
-		$fsyms = ['BTC', 'ETH'], $tsyms = ['USD', 'EUR'], $e = 'CCCAGG',
-		$sign = false)
+		$fsyms = ['BTC', 'ETH'], $tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
-		$_tsyms = join(',', $tsyms);
-		$_fsyms = join(',', $fsyms);
-
 		$params = [
 			'tryConversion' => $tryConversion,
-			'fsyms' => $_fsyms,
-			'tsyms' => $_tsyms,
+			'fsyms' => join(',', $fsyms),
+			'tsyms' => join(',', $tsyms),
 			'e' => $e,
 			'sign' => $sign
 		];
@@ -127,7 +111,6 @@ class Price extends CryptocompareApi
 	public function getGenerateAvg($tryConversion = '1', $fsym = 'BTC',
 		$tsym = 'EUR', $e = 'Coinbase,Kraken', $sign = false)
 	{
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
@@ -152,7 +135,6 @@ class Price extends CryptocompareApi
 		$e = 'CCCAGG', $avgType = 'HourVWAP', $UTCHourDiff = 0, $toTs = '1487116800',
 		$sign = false)
 	{
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'avgType' => $avgType,
@@ -176,15 +158,12 @@ class Price extends CryptocompareApi
 	 * @param bool $sign - server sided signing of request
 	 * @return mixed
 	 */
-	public function getSubsWatchlist($tryConversion = '1',
-		$fsyms = ['BTC', 'ETH'], $tsym = 'EUR', $e = 'CCCAGG', $sign = false)
+	public function getSubsWatchlist($tryConversion = '1', $fsyms = ['BTC', 'ETH'],
+		$tsym = 'EUR', $e = 'CCCAGG', $sign = false)
 	{
-
-		$_fsyms = join(',', $fsyms);
-
 		$params = [
 			'tryConversion' => $tryConversion,
-			'fsyms' => $_fsyms,
+			'fsyms' => join(',', $fsyms),
 			'tsym' => $tsym,
 			'e' => $e,
 			'sign' => $sign
@@ -205,13 +184,10 @@ class Price extends CryptocompareApi
 	public function getSubs($tryConversion = '1', $fsym = 'BTC',
 		$tsyms = ['USD', 'EUR'], $e = 'CCCAGG', $sign = false)
 	{
-
-		$_tsyms = join(',', $tsyms);
-
 		$params = [
 			'tryConversion' => $tryConversion,
 			'fsym' => $fsym,
-			'tsyms' => $_tsyms,
+			'tsyms' => join(',', $tsyms),
 			'e' => $e,
 			'sign' => $sign
 		];
