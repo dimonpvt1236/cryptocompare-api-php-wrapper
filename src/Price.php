@@ -52,8 +52,8 @@ class Price extends CryptocompareApi
 		$fsyms = array('BTC', 'ETH'), $tsyms = array('USD', 'EUR'), $e = 'CCCAGG',
 		$sign = false)
 	{
-		$_tsyms = $this->arrayToCommaSeperatedString($tsyms);
-		$_fsyms = $this->arrayToCommaSeperatedString($fsyms);
+		$_tsyms = join(',', $tsyms);
+		$_fsyms = join(',', $fsyms);
 		$extraParams = $this->appplicationName;
 		;
 
@@ -117,8 +117,8 @@ class Price extends CryptocompareApi
 		$fsyms = array('BTC', 'ETH'), $tsyms = array('USD', 'EUR'), $e = 'CCCAGG',
 		$sign = false)
 	{
-		$_tsyms = $this->arrayToCommaSeperatedString($tsyms);
-		$_fsyms = $this->arrayToCommaSeperatedString($fsyms);
+		$_tsyms = join(',', $tsyms);
+		$_fsyms = join(',', $fsyms);
 		$extraParams = $this->appplicationName;
 		;
 
@@ -210,7 +210,7 @@ class Price extends CryptocompareApi
 		$fsyms = array('BTC', 'ETH'), $tsym = 'EUR', $e = 'CCCAGG', $sign = false)
 	{
 
-		$_fsyms = $this->arrayToCommaSeperatedString($fsyms);
+		$_fsyms = join(',', $fsyms);
 		$extraParams = $this->appplicationName;
 		;
 
@@ -240,7 +240,7 @@ class Price extends CryptocompareApi
 		$tsyms = array('USD', 'EUR'), $e = 'CCCAGG', $sign = false)
 	{
 
-		$_tsyms = $this->arrayToCommaSeperatedString($tsyms);
+		$_tsyms = join(',', $tsyms);
 		$extraParams = $this->appplicationName;
 		;
 

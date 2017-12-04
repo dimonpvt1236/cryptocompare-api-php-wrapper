@@ -162,9 +162,8 @@ class CryptocompareApi
 				echo 'URI: ' . $uri . '<br>';
 			}
 			$client = new \GuzzleHttp\Client(['verify' => false]);
-			$res = $client->request('GET', $uri,
-				array(
-				'query' => $options
+			$res = $client->request('GET', $uri, array(
+					'query' => $options
 			));
 			$this->statusCode = $res->getStatusCode();
 			$this->header = $res->getHeader('content-type');
@@ -177,24 +176,6 @@ class CryptocompareApi
 				die();
 			}
 		}
-	}
-
-
-	/**
-	 * @param array $input - an array of strings ( currencies )
-	 * @return string - 'EUR,USD,BTC'
-	 */
-	public function arrayToCommaSeperatedString($input = array())
-	{
-		$output = '';
-		foreach ($input as $i => $t) {
-			if ($i == 0) {
-				$output = $t;
-			} else {
-				$output = $output . ',' . $t;
-			}
-		}
-		return $output;
 	}
 
 
