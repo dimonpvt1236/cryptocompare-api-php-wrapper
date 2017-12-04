@@ -75,9 +75,10 @@ class CryptocompareApi
 
 
 	/**
+	 * @param bool $sign Should server sign the request?
 	 * @return bool|mixed - returns mining equipment added on website
 	 */
-	public function getNewsProviders($sign = false)
+	public function getNewsProviders(bool $sign = false)
 	{
 		$params = [
 			'sign' => $sign,
@@ -88,10 +89,11 @@ class CryptocompareApi
 
 
 	/**
+	 * @param bool $sign Should server sign the request?
 	 * @return bool|mixed - returns mining equipment added on website
 	 */
 	public function getNews($feeds = 'ALL_NEWS_FEEDS', $lTs = false, $lang = 'EN',
-		$sign = false)
+		bool $sign = false)
 	{
 		$params = [
 			'feeds' => $feeds,

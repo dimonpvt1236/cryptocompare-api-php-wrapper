@@ -9,10 +9,10 @@ class Market extends CryptocompareApi
 	 * @param string $fsym
 	 * @param string $tsym
 	 * @param int $limit
-	 * @param bool $sign
+	 * @param bool $sign Should server sign the request?
 	 * @return bool|mixed
 	 */
-	public function getTopPairs($fsym = 'BTC', $limit = 5, $sign = false)
+	public function getTopPairs($fsym = 'BTC', $limit = 5, bool $sign = false)
 	{
 		$params = [
 			'fsym' => $fsym,
@@ -28,11 +28,11 @@ class Market extends CryptocompareApi
 	 * @param string $fsym - base currency to convert from
 	 * @param string $tsym - currency to convert to
 	 * @param int $limit - limit of results
-	 * @param bool $sign - server sided signing of request
+	 * @param bool $sign Should server sign the request?
 	 * @return mixed
 	 */
 	public function getTopExchanges($fsym = 'BTC', $tsym = 'EUR', $limit = 5,
-		$sign = false)
+		bool $sign = false)
 	{
 
 		$params = [
@@ -48,10 +48,10 @@ class Market extends CryptocompareApi
 
 	/**
 	 * @param string $tsym - currency to convert to
-	 * @param bool $sign - server sided signing of request
+	 * @param bool $sign Should server sign the request?
 	 * @return mixed
 	 */
-	public function getTopVolumes($tsym = 'EUR', $limit = 20, $sign = false)
+	public function getTopVolumes($tsym = 'EUR', $limit = 20, bool $sign = false)
 	{
 
 		$params = [
@@ -65,10 +65,10 @@ class Market extends CryptocompareApi
 
 
 	/**
-	 * @param bool $sign - server sided signing of request
+	 * @param bool $sign Should server sign the request?
 	 * @return mixed
 	 */
-	public function getList($sign = false)
+	public function getList(bool $sign = false)
 	{
 		$params = [
 			'sign' => $sign

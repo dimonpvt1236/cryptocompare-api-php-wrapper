@@ -6,9 +6,10 @@ class Coin extends CryptocompareApi
 {
 
 	/**
+	 * @param bool $sign Should server sign the request?
 	 * @return bool|mixed - returns general info for all the coins available on the website.
 	 */
-	public function getList($sign = false)
+	public function getList(bool $sign = false)
 	{
 		$params = [
 			'sign' => $sign
