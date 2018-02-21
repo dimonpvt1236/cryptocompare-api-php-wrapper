@@ -238,12 +238,12 @@ class Price extends CryptocompareApi
 	 * @param bool $sign Should server sign the request?
 	 * @param int $aggregate
 	 * @param int $limit Max 2000
-	 * @param ?int $toTs
+	 * @param int $toTs
 	 * @return bool|mixed
 	 */
 	public function getHistoMinute(bool $tryConversion = true,
 		string $fsym = 'BTC', string $tsym = 'EUR', string $e = 'CCCAGG',
-		bool $sign = false, $aggregate = 1, int $limit = 1440, ?int $toTs = NULL)
+		bool $sign = false, $aggregate = 1, int $limit = 1440, int $toTs = NULL)
 	{
 		$params = [
 			'tryConversion' => $tryConversion,
@@ -271,12 +271,12 @@ class Price extends CryptocompareApi
 	 * @param bool $sign Should server sign the request?
 	 * @param int $aggregate
 	 * @param int $limit Max 2000
-	 * @param ?int $toTs
+	 * @param int $toTs
 	 * @return bool|mixed
 	 */
 	public function getHistoHour(bool $tryConversion = true, string $fsym = 'BTC',
 		$tsym = 'EUR', string $e = 'CCCAGG', bool $sign = false, int $aggregate = 1,
-		int $limit = 1440, ?int $toTs = NULL)
+		int $limit = 1440, int $toTs = NULL)
 	{
 		$params = [
 			'tryConversion' => $tryConversion,
@@ -305,13 +305,13 @@ class Price extends CryptocompareApi
 	 * @param bool $sign Should server sign the request?
 	 * @param int $aggregate
 	 * @param int $limit Max 2000
-	 * @param ?int $toTs
+	 * @param int $toTs
 	 * @param bool $getAllData
 	 * @return bool|mixed
 	 */
 	public function getHistoDay(bool $tryConversion = true, string $fsym = 'BTC',
 		string $tsym = 'EUR', string $e = 'CCCAGG', bool $sign = false,
-		$aggregate = 1, int $limit = 1440, ?int $toTs = NULL, bool $getAllData = false)
+		$aggregate = 1, int $limit = 1440, int $toTs = NULL, bool $getAllData = false)
 	{
 		$params = [
 			'tryConversion' => $tryConversion,
